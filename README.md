@@ -64,7 +64,10 @@ Con esto ya podremos hacer el reto.
   El script se encarga de bajar el libro de www.gutenberg.org. Esta página almacena los libros en texto plano de la siguiente manera: 'http://www.gutenberg.org/cache/epub/1000/pg1000.txt', donde con editar el número 1000 podremos acceder a gran cantidad de libros. Para poder descargar un libro aleatorio descomponemos el URL en 4 partes, generamos un número random entre 450 y 1450. Finalmente, eliminamos el libro viejo para evitar problemas con sobreescrituras y descargamos el .txt usando el enlace generado.
    
    ![][7]  
-   
+ 
+ Para hacer que nuestro script se ejecute de manera periódica (cada 5 minutos), usaremos crontab, que es un archivo en el cuál podemos especificar que scripts o .exe queremos que se ejecuten, además, nos da la posibilidad de decidir cada cuanto tiempo, desde minutos hasta meses.  
+ 
+ Los parámetros de crontab se manejan de la siguiente manera, contiene 5 campos de tiempo, el primero son minutos de la hora y como queremos que se ejecute cada 5 minutos, ingresamos los tiempos separados por comas. Con esto, nos cercioramos que activará el script en los minutos 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 y 55 de cada hora. Los siguientes campos son: Hora del día, día del mes, mes del año y día de la semana. El último parámetro, es la ruta del script que queremos que se ejecute.
       
    ![][8]
    
