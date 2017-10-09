@@ -105,9 +105,13 @@ Después, definimos el método '__init'
 
 ![][11]  
 
+Este método realiza diferentes funciones, primero se cerciora que la ruta de nuestra canción sea válida, luego comprueba la ruta de la tabla sys_call para no hacer cambios en una dirección inválida. Todo esto, ya que al modificar o realizar acciones sobre los llamados del sistema podemos cometer errores y dañar nuestro sistema operativo. Luego, deshabilita la protección, copia el método original de sys_open y lo reemplaza con nuestro rick_open. Finalmente, habilida la protección de escritura.
 
+![][12]  
 
+Declarando el método rickroll_open, primero comprobamos que la extensión del archivo al que se le hace open, sea de extensión mp3, luego editamos la parte de memoría que usar el Kernel para hacer esta ejecución, y la reemplazamos con nuestra canción.  
 
+Por último, se define el método '__exit' para volver todo a la normalidad, se deshabilita la protección, se edita el sys_open y se habilita de nuevo la protección.  
 
 6. El informe debe ser entregado en formato pdf a través del moodle y el informe en formato README.md debe ser subido a un repositorio de github. El repositorio de github debe ser un fork de https://github.com/ICESI-Training/so-exam1 y para la entrega deberá hacer un Pull Request (PR) respetando la estructura definida. El código fuente y la url de github deben incluirse en el informe (10%)  
 
@@ -131,4 +135,5 @@ Después, definimos el método '__init'
 [9]: images/p4_correo.png  
 [10]: images/p4_libro.png  
 [11]: images/init.png  
+[12]: images/open.png  
 
