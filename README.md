@@ -26,23 +26,28 @@ El primer parcial del curso sistemas operativos trata sobre el manejo de los com
 2. Ortografía y redacción cuando sea necesario (5%)
 3. Resuelva los siguienes retos de la página https://cmdchallenge.com y presente la solución a cada uno de ellos a través de un ejemplo práctico en CentOS7. Presente capturas de pantalla relevantes como evidencias de lo realizado (20%)
 
-  * sum_all_numbers  
+  * sum_all_numbers: Para sumar todos los números de un archivo suma.txt, lo que hacemos es usar el comando **jq**,al cuál podemos pasarle como parámetros operaciones arítmeticas, que realizará sobre los números del archivo. Este comando lo obtenemos ejectuando las siguientes líneas: 
+wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64; hacemos una copia de los recursos en github.
+chmod +x ./jq; damos permisos de ejecución.
+cp jq /usr/bin; copiamos en bin, que contiene todos los comandos ejecutables del sistema.  
+Con esto ya podremos hacer el reto.
+
     
   ![][1]  
     
-  * replace_spaces_in_filenames  
+  * replace_spaces_in_filenames: Para reemplazar los espacios con puntos, usamos el comando **tr**, y pasamos como parámetros ' ', que representa los espacios en los nombres de los archivos del directorio que estamos, seguido de '.' , que será el caracter que reemplazará los espacios.
     
   ![][2]
     
-  * reverse_readme  
+  * reverse_readme: Para editar un archivo txt, haciendo que las líneas se inviertan de abajo hacia arriba, usamos el comando **tac** y le pasamos como parámetro el archivo.  
     
   ![][3] 
     
-  * remove_duplicated_lines  
+  * remove_duplicated_lines: **awk** es un editor y lector de archivos como lo es cat y vi. Al comando para llamar este editor se le pueden pasar como parámetros diferentes métodos, como lo es 'unique[$0]', que elimina todas las líneas repetidas de un archivo.  
     
   ![][4]  
     
-  * disp_table  
+  * disp_table: Podemos convertir un archivo de texto en una tabla, para ello especificamos las columnas de nuestra tabla serárandolas por comas, y haciendo saltos de línea para especificar una siguiente fila. Todo esto con el comando **column**.  
     
   ![][5]  
   
@@ -52,9 +57,14 @@ El primer parcial del curso sistemas operativos trata sobre el manejo de los com
   * EL script debe descargar un libro del proyecto https://www.gutenberg.org/ en el directorio /home/gutenberg/mybooks
   * Si ya existe un libro en el directorio mybooks, debe ser reemplazado  
   
+  Para cumpliar los requerimientos, primero creamos el usuario gutenberg, que en sus directorios contendrá la ruta /home/gutenberg/documentos/libreria, donde estarán almacenado el libro que se actualiza, y el script descarga.sh.
+  
    ![][6]  
+  
+  El script se encarga de bajar el libro de www.gutenberg.org. Esta página almacena los libros en texto plano de la siguiente manera: 'http://www.gutenberg.org/cache/epub/1000/pg1000.txt', donde con editar el número 1000 podremos acceder a gran cantidad de libros. Para poder descargar un libro aleatorio descomponemos el URL en 4 partes, generamos un número random entre 450 y 1450. Finalmente, eliminamos el libro viejo para evitar problemas con sobreescrituras y descargamos el .txt usando el enlace generado.
    
-   ![][7]
+   ![][7]  
+   
       
    ![][8]
    
