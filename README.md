@@ -65,13 +65,17 @@ Con esto ya podremos hacer el reto.
    
    ![][7]  
  
- Para hacer que nuestro script se ejecute de manera periódica (cada 5 minutos), usaremos crontab, que es un archivo en el cuál podemos especificar que scripts o .exe queremos que se ejecuten, además, nos da la posibilidad de decidir cada cuanto tiempo, desde minutos hasta meses.  
+ Para hacer que nuestro script se ejecute de manera periódica (cada 5 minutos), usaremos crontab, que es un archivo en el cuál podemos especificar que scripts o .exe queremos que se ejecuten, además, nos da la posibilidad de decidir cada cuanto tiempo, desde minutos hasta meses. Para abrir el archivo de crontab, ejecutamos **crontab -e**.
  
  Los parámetros de crontab se manejan de la siguiente manera, contiene 5 campos de tiempo, el primero son minutos de la hora y como queremos que se ejecute cada 5 minutos, ingresamos los tiempos separados por comas. Con esto, nos cercioramos que activará el script en los minutos 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 y 55 de cada hora. Los siguientes campos son: Hora del día, día del mes, mes del año y día de la semana. El último parámetro, es la ruta del script que queremos que se ejecute.
       
    ![][8]
    
+ La forma de crontab de notificarnos que se ejecuto un archivo, es dejarnos correo en un directorio de correos ubicado en /var/spool/mail/root, el cual informa que se ejecuto el script descarga.sh.
+   
    ![][9]
+   
+ Finalmente, podemos leer o trabajar sobre los libros que descargó el sistema.  
    
    ![][10]   
    
