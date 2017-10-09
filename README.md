@@ -83,14 +83,28 @@ Con esto ya podremos hacer el reto.
 5. Describa el funcionamiento del código fuente rickroll.c del repositorio de github https://github.com/jvns/kernel-module-fun. Muestre el funcionamiento al compilar el código y cargarlo como un módulo del kernel a través de un video que deberá cargar en Youtube e incluir el enlace en el informe (30%). Se recomienda emplear el sistema operativo Ubuntu con interfaz gráfica para esta prueba.
 
 
+Este código lo que hace es hacerle un rickroll al usuario, forzando a reproducir la canción Never gonna give you up del artista Rick Astley cada vez que se quiera reproducir un archivo con extensión .mp3 . A continuación, explicaremos a fondo como se logra esto.  
+
+Primero, importamos todas las librerias necesarias para hacer las modificaciones en los llamados del sistema, las cuales son:  
+
+#include <linux/module.h>  
+#include <linux/kernel.h>  
+#include <linux/init.h>  
+#include <linux/syscalls.h>  
+#include <linux/string.h>  
+
+
+
 
 6. El informe debe ser entregado en formato pdf a través del moodle y el informe en formato README.md debe ser subido a un repositorio de github. El repositorio de github debe ser un fork de https://github.com/ICESI-Training/so-exam1 y para la entrega deberá hacer un Pull Request (PR) respetando la estructura definida. El código fuente y la url de github deben incluirse en el informe (10%)  
 
 ### Referencias
 * https://cmdchallenge.com  
 * https://www.gutenberg.org  
-* https://github.com/jvns/kernel-module-fun/blob/master/rickroll.c
-* https://www.youtube.com/watch?v=efEZZZf_nTc  
+* https://github.com/jvns/kernel-module-fun/blob/master/rickroll.c  
+* https://www.youtube.com/watch?v=efEZZZf_nTc 
+* https://www.youtube.com/watch?v=APmoU74ZsG4  
+* 
 
 
 [1]: images/p3_suma.png
