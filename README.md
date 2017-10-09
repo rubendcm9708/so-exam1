@@ -93,6 +93,19 @@ Primero, importamos todas las librerias necesarias para hacer las modificaciones
 #include <linux/syscalls.h>  
 #include <linux/string.h>  
 
+A continuación, se crean las variables que usaremos en el programa, que son: la ruta donde se encuentra almacenada la canción Never gonna give you up (rickroll_filename); las funciones de habilitar y deshabilitar la protección de escritura de la tabla de sys_call (DISABLE_WRITE_PROTECTION y ENABLE_WRITE_PROTECTION) y el método original de sys_open. Adicionalmente, se guardan módulos de parámetros.  
+
+static char rickroll_filename = "/home/bork/media/music/Rick Astley - Never Gonna Give You Up.mp3";  
+module_param(rickroll_filename, charp, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);  
+MODULE_PARM_DESC(rickroll_filename, "The location of the rick roll file");  
+#define DISABLE_WRITE_PROTECTION (write_cr0(read_cr0() & (~ 0x10000)))  
+#define ENABLE_WRITE_PROTECTION (write_cr0(read_cr0() | 0x10000))  
+
+Después, definimos el método '__init' 
+
+![][11]  
+
+
 
 
 
@@ -117,3 +130,5 @@ Primero, importamos todas las librerias necesarias para hacer las modificaciones
 [8]: images/p4_crontab.png  
 [9]: images/p4_correo.png  
 [10]: images/p4_libro.png  
+[11]: images/init.png  
+
